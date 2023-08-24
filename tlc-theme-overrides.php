@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name: TLC Login Form
- * Plugin URI: https://github.com/mikemayer67/tlc-login-form
- * Description: Plugin for modifying the Wordpress login form
+ * Plugin Name: TLC Theme Overrides
+ * Plugin URI: https://github.com/mikemayer67/tlc-theme_overrides
+ * Description: Plugin for modifying aspects of the TLC theme
  * Version: 0.0.1
  * Author: Michael A. Mayer
  * Requires PHP: 5.3.0
@@ -26,3 +26,12 @@ function tlc_login_message()
 }
 
 add_action('login_message','tlc_login_message');
+
+function tlc_howdy_message($translated_text, $text, $domain) {
+  if( $domain != "default" ) {
+    return $translated_text;
+  }
+  return str_replace('Howdy, ', 'You are logged in as ', $text);
+}
+
+add_filter('gettext', 'tlc_howdy_message', 10, 3);
