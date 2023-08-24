@@ -1,4 +1,4 @@
-# tlc-login-form
+# tlc-theme-overrides
 Plugin for modifying TLC theme elements
 
 This plugin provides a few very simple overrides to the http://trinityelca.org website's theme.
